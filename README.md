@@ -2,27 +2,30 @@
 wx-stat-native用于微信小程序跳转到其它小程序时给指定用户发送统计代码。
 
 ## 使用
-
-### 小程序原生语法
-
 **准备工作**
-1. 在app.json中增加跳转小程序白名单`"navigateToMiniProgramAppIdList": ["wxe5f52902cf4de896"]`，[官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)
-2. 小程序后台，服务器域名添加以下域名为request白名单（后续adx有变动需同步修改）
+- 在app.json中增加跳转小程序白名单`"navigateToMiniProgramAppIdList": ["wxe5f52902cf4de896"]`，[官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)
+- 小程序后台，服务器域名添加以下域名为request白名单（后续adx有变动需同步修改）
   - https://a.adx.newoer.com
   - https://rtb.adx.newoer.com
   - https://s.adx.newoer.com
 
-1. 第一步
+
+### 小程序原生语法
+
+1.第一步
+
 安装组件
 ```bash
 npm install wx-stat-native --save
 ```
 
-2. 第二步
+2.第二步
+
 微信开发者工具，按照教程进行小程序构建npm
 [小程序使用npm包](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
 
-3. 第三步
+3.第三步
+
 打开pages/xxx/xxx.json，引入组件
 ```json
 {
@@ -32,7 +35,8 @@ npm install wx-stat-native --save
 }
 ```
 
-4. 第四步
+4.第四步
+
 打开pages/xxx/xxx.js
 ```js
 Page({
