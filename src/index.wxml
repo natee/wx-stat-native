@@ -1,5 +1,6 @@
 <view class="wx-stat-banner">
   <navigator
+    wx:if="{{hasBid}}"
     target="miniProgram"
     open-type="navigate"
     app-id="{{adxData.appid}}"

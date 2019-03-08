@@ -18,6 +18,7 @@ Component({
     }
   },
   data: {
+    hasBid: false,
     adxData: {}
   },
   lifetimes: {
@@ -51,20 +52,32 @@ Component({
         site: data.siteInfo,
         user: data.user,
         imp: data.imp,
-        ts: +new Date()
+        ts: +new Date(),
+        aid: data.aid,
+        rid: data.rid
       }
 
       api.getAdxInfo(params).then(res => {
-        const data = res.data.seatbid[0].bid[0]
-        if (data.action_type === 8) {
+        const hasData = res.data.seatbid && res.data.seatbid.length > 0;
+        let bidInfo;
+        if(hasData){
+          bidInfo = res.data.seatbid[0].bid[0];
           this.setData({
-            adxData: data
+            hasBid: bidInfo.action_type === 8
+          });
+        }
+
+        if(this.data.hasBid){
+          this.setData({
+            adxData: bidInfo
           })
 
           // 展示时发送统计请求
           this.data.adxData.imptrackers.forEach(url => {
             api.sendStatInfo(url)
           })
+
+          this.data.imptrace && api.sendStatInfo(this.data.imptrace);
         }
 
         return false
@@ -122,6 +135,8 @@ Component({
       this.data.adxData.clktrackers.forEach(url => {
         api.sendStatInfo(url)
       })
+
+      this.data.clktrace && api.sendStatInfo(this.data.clktrace);
     }
   }
 })

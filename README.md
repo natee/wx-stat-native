@@ -50,7 +50,7 @@ Page({
 打开pages/xxx/xxx.wxml
 
 ```html
-<wxstat type="{{type}}" name="{{name}}" tag-id="{{tagId}}" uid="{{uid}}"></wxstat>
+<wxstat type="{{type}}" name="{{name}}" tag-id="{{tagId}}" uid="{{uid}}" aid="{{aid}}" rid="{{rid}}" imptrace="{{imptrace}}" clktrace="{{clktrace}}"></wxstat>
 ```
 ****
 
@@ -70,6 +70,10 @@ Page({
 | tag-id | String | 广告主提供的tagid | 必填 |
 | name | String | 小程序名称 | 必填 |
 | uid | String | 用户微信id | 可选 |
+| aid | String | 预留参数aid | 可选 |
+| rid | String | 预留参数rid | 可选 |
+| imptrace | String | 小程序用户提供，展示时发送统计 | 可选 |
+| clktrace | String | 小程序用户提供，小程序跳转成功时发送统计 | 可选 |
 
 ## 开发
 
