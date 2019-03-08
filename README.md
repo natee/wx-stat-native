@@ -5,30 +5,57 @@ wx-stat-native用于微信小程序跳转到其它小程序时给指定用户发
 
 ### 小程序原生语法
 
-#### 准备工作
+**准备工作**
 1. 在app.json中增加跳转小程序白名单`"navigateToMiniProgramAppIdList": ["wxe5f52902cf4de896"]`，[官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)
 2. 小程序后台，服务器域名添加以下域名为request白名单（后续adx有变动需同步修改）
   - https://a.adx.newoer.com
   - https://rtb.adx.newoer.com
   - https://s.adx.newoer.com
 
-直接用vue语法引入WxStat组件。
-
-```JavaScript
-import WxStat from 'wx-stat-native';
-...
-components: { WxStat }
-...
+1. 第一步
+安装组件
+```bash
+npm install wx-stat-native --save
 ```
 
+2. 第二步
+微信开发者工具，按照教程进行小程序构建npm
+[小程序使用npm包](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+
+3. 第三步
+打开pages/xxx/xxx.json，引入组件
+```json
+{
+  "usingComponents": {
+    "wxstat": "wx-stat-native"
+  }
+}
+```
+
+4. 第四步
+打开pages/xxx/xxx.js
+```js
+Page({
+  data:{ // 组件需要的参数，不一定非得写这里，根据具体业务调整
+    name: '你画我拆',
+    tagId: '300350'
+  }
+})
+```
+
+打开pages/xxx/xxx.wxml
+
 ```html
-<wx-stat :type="type" :tag-id="tagId" :name="mpName" :uid="uid"></wx-stat>
+<wxstat type="{{type}}" name="{{name}}" tag-id="{{tagId}}" uid="{{uid}}"></wxstat>
 ```
 ****
 
 
 ### mpvue或wepy框架
 请移步[wx-stat-vue](https://github.com/natee/wx-stat-vue)
+
+注：
+- mpvue你可以参照[这里](https://github.com/mpvue/examples/tree/master/echarts)来直接引用小程序原生组件
 
 
 ## 参数
@@ -62,41 +89,10 @@ npm run watch
 
 > ps: 如果 minirpogram\_dev 目录下已存在小程序 demo，执行`npm run dev`则不会再将 tools 下的 demo 拷贝到此目录下。而执行`npm run watch`则会监听 tools 目录下的 demo 变动并进行拷贝。
 
-3. 生成的 miniprogram\_dev 目录是一个小程序项目目录，以此目录作为小程序项目目录在开发者工具中打开即可查看自定义组件被使用的效果。
-
-4. 进阶：
-
-* 如果有额外的构建需求，可自行修改 tools 目录中的构建脚本。
-* 内置支持 less、sourcemap 等功能，默认关闭。如若需要可以自行修改 tools/config.js 配置文件中相关配置。
-* 内置支持多入口构建，如若需要可自行调整 tools/config.js 配置文件的 entry 字段。
-* 默认开启 eslint，可自行调整规则或在 tools/config.js 中注释掉 eslint-loader 行来关闭此功能。
-
 ## 发布
 
 > ps: 发布前得确保已经执行构建，小程序 npm 包只有构建出来的目录是真正被使用到的。
 
-1. 如果还没有 npm 帐号，可以到[ npm 官网](https://www.npmjs.com/)注册一个 npm 帐号。
-2. 在本地登录 npm 帐号，在本地执行：
-
-```
-npm adduser
-```
-
-或者
-
-```
-npm login
-```
-
-3. 在已完成编写的 npm 包根目录下执行：
-
-```
-npm publish
-```
-
-到此，npm 包就成功发布到 npm 平台了。
-
-> PS：一些开发者在开发过程中可能修改过 npm 的源，所以当进行登录或发布时需要注意要将源切回 npm 的源。
 
 ## 目录结构
 
@@ -121,32 +117,3 @@ npm publish
 
 > PS：对外暴露的 js 模块/自定义组件请放在 src 目录下，不宜放置在过深的目录。另外新增的暴露模块需要在 tools/config.js 的 entry 字段中补充，不然不会进行构建。
 
-## 测试
-
-* 执行测试用例：
-
-```
-npm run test
-```
-
-* 检测覆盖率：
-
-```
-npm run coverage
-```
-
-测试用例放在 test 目录下，使用 **miniprogram-simulate** 工具集进行测试，[点击此处查看](https://github.com/wechat-miniprogram/miniprogram-simulate/blob/master/README.md)使用方法。在测试中可能需要变更或调整工具集中的一些方法，可在 test/utils 下自行实现。
-
-## 其他命令
-
-* 清空 miniprogram_dist 目录：
-
-```
-npm run clean
-```
-
-* 清空 miniprogam_dev 目录：
-
-```
-npm run clean-dev
-```

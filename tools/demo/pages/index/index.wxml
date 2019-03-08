@@ -1,1 +1,2 @@
 <wxstat name="{{name}}" tag-id="{{tagId}}"></wxstat>
+<view>{{name}}</view>
