@@ -1,5 +1,12 @@
-<view class="wx-stat">
-  <view class="wx-stat-banner" bindtap="jumpTo">
+<view class="wx-stat-banner">
+  <navigator
+    target="miniProgram"
+    open-type="navigate"
+    app-id="{{adxData.appid}}"
+    path="{{adxData.clkurl302}}"
+    bindsuccess="mpOpend"
+    version="release"
+  >
     <image src="{{adxData.iurl}}" mode="widthFix" ></image>
-  </view>
+  </navigator>
 </view>

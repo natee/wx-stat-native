@@ -33,12 +33,12 @@ components: { WxStat }
 
 ## 参数
 
-| 选项 | 描述 | 可选 |
-| ----- | ----- | ---- |
-| type | 广告主或小程序用户 | 可选，默认'user' |
-| tag-id | 广告主提供的tagid | 必填 |
-| name | 小程序名称 | 必填 |
-| uid | 用户微信id | 可选 |
+| 选项 | 类型 | 描述 | 可选 |
+| ----- | ---- | ----- | ---- |
+| type | String | 广告主或小程序用户 | 可选，默认'user' |
+| tag-id | String | 广告主提供的tagid | 必填 |
+| name | String | 小程序名称 | 必填 |
+| uid | String | 用户微信id | 可选 |
 
 ## 开发
 

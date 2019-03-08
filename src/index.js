@@ -62,7 +62,7 @@ Component({
           })
 
           // 展示时发送统计请求
-          this.adxData.imptrackers.forEach(url => {
+          this.data.adxData.imptrackers.forEach(url => {
             api.sendStatInfo(url)
           })
         }
@@ -117,18 +117,10 @@ Component({
         }
       ]
     },
-    jumpTo() {
-      const self = this
-      const data = self.data
-      wx.navigateToMiniProgram({
-        appId: data.adxData.appid,
-        path: data.adxData.clkurl302,
-        success() {
-          // 点击时发送统计请求
-          data.adxData.clktrackers.forEach(url => {
-            api.sendStatInfo(url)
-          })
-        }
+    mpOpend() {
+      // 点击时发送统计请求
+      this.data.adxData.clktrackers.forEach(url => {
+        api.sendStatInfo(url)
       })
     }
   }
