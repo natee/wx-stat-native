@@ -1,6 +1,8 @@
 # wx-stat-native
 wx-stat-native用于微信小程序跳转到其它小程序时给指定用户发送统计代码。
 
+本组件仅供使用小程序原生语法开发的小程序使用。
+
 ## 使用
 **准备工作**
 - 在app.json中增加跳转小程序白名单`"navigateToMiniProgramAppIdList": ["wxe5f52902cf4de896"]`，[官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html)
@@ -55,11 +57,14 @@ Page({
 ****
 
 
-### mpvue或wepy框架
+### mpvue
 请移步[wx-stat-vue](https://github.com/natee/wx-stat-vue)
 
 注：
 - mpvue你可以参照[这里](https://github.com/mpvue/examples/tree/master/echarts)来直接引用小程序原生组件
+
+### wepy
+请移步[wx-stat-wepy](https://github.com/natee/wx-stat-wepy)
 
 
 ## 参数
