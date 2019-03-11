@@ -54,14 +54,11 @@ Page({
 ```html
 <wxstat type="{{type}}" name="{{name}}" tag-id="{{tagId}}" uid="{{uid}}" aid="{{aid}}" rid="{{rid}}" imptrace="{{imptrace}}" clktrace="{{clktrace}}"></wxstat>
 ```
-****
 
 
 ### mpvue
 请移步[wx-stat-vue](https://github.com/natee/wx-stat-vue)
 
-注：
-- mpvue你可以参照[这里](https://github.com/mpvue/examples/tree/master/echarts)来直接引用小程序原生组件
 
 ### wepy
 请移步[wx-stat-wepy](https://github.com/natee/wx-stat-wepy)
