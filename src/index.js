@@ -65,6 +65,13 @@ Component({
           this.setData({
             hasBid: bidInfo.action_type === 8
           });
+        }else{
+          wx.showModal({
+            title: "提示",
+            content: "获取广告信息失败，请确保参数填写正确",
+            confirmText: "确定",
+            showCancel: false
+          });
         }
 
         if(this.data.hasBid){
@@ -137,6 +144,9 @@ Component({
       })
 
       this.data.clktrace && api.sendStatInfo(this.data.clktrace);
+    },
+    mpOpenFail(res) {
+      console.log('小程序跳转失败：',res);
     }
   }
 })

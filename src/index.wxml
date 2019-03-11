@@ -6,6 +6,7 @@
     app-id="{{adxData.appid}}"
     path="{{adxData.clkurl302}}"
     bindsuccess="mpOpend"
+    bindfail="mpOpenFail"
     version="release"
   >
     <image src="{{adxData.iurl}}" mode="widthFix" ></image>
