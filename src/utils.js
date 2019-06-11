@@ -32,7 +32,7 @@ function getCurrentPageUrlWithArgs() {
   let urlWithArgs = url
   if (options) {
     urlWithArgs += '?'
-    const keys = options.keys
+    const keys = Object.keys(options)
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i]
       const value = options[key]
