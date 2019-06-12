@@ -90,6 +90,7 @@ Component({
             confirmText: "确定",
             showCancel: false
           });
+          return false;
         }
 
         if(['mp', 'h5'].indexOf(this.data.adType) > -1){
