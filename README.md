@@ -1,5 +1,5 @@
 # wx-stat-native
-wx-stat-native用于微信小程序跳转到其它小程序时给指定用户发送统计代码。
+wx-stat-native用于微信小程序跳转到其它小程序或h5广告页时给指定用户发送统计代码。
 
 本组件仅供使用小程序原生语法开发的小程序使用。
 
@@ -68,7 +68,7 @@ Page({
 
 | 选项 | 类型 | 描述 | 可选 |
 | ----- | ---- | ----- | ---- |
-| type | String | 广告主或小程序用户 | 可选，默认'user' |
+| type | String | 广告主或小程序用户 | 可选，默认'user'，['adx','user'] |
 | tag-id | String | 广告主提供的tagid | 必填 |
 | name | String | 小程序名称 | 必填 |
 | uid | String | 用户微信id | 可选 |

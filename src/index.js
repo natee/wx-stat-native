@@ -18,8 +18,9 @@ Component({
     }
   },
   data: {
-    hasBid: false,
-    adxData: {}
+    adType: 'mp',
+    adxData: {},
+    showSite: false
   },
   lifetimes: {
     attached() {
@@ -63,7 +64,8 @@ Component({
         if(hasData){
           bidInfo = res.data.seatbid[0].bid[0];
           this.setData({
-            hasBid: bidInfo.action_type === 8
+            // 1: 打开页面链接  8: 打开小程序
+            adType: bidInfo.action_type === 8 ? 'mp' : bidInfo.action_type === 1 ? 'h5' : 'other'
           });
         }else{
           wx.showModal({
@@ -74,7 +76,7 @@ Component({
           });
         }
 
-        if(this.data.hasBid){
+        if(['mp', 'h5'].indexOf(this.data.adType) > -1){
           this.setData({
             adxData: bidInfo
           })
@@ -147,6 +149,12 @@ Component({
     },
     mpOpenFail(res) {
       console.log('小程序跳转失败：',res);
+    },
+
+    gotoAdSite() {
+      this.setData({
+        showSite: true
+      });
     }
   }
 })

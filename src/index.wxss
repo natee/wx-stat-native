@@ -1,3 +1,7 @@
 .wx-stat-banner{
   text-align: center;
 }
+
+.wx-stat__ad{
+  margin: 0 auto;
+}

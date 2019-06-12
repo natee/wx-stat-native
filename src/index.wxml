@@ -1,6 +1,6 @@
 <view class="wx-stat-banner">
   <navigator
-    wx:if="{{hasBid}}"
+    wx:if="{{adType === 'mp'}}"
     target="miniProgram"
     open-type="navigate"
     app-id="{{adxData.appid}}"
@@ -9,6 +9,10 @@
     bindfail="mpOpenFail"
     version="release"
   >
-    <image src="{{adxData.iurl}}" mode="widthFix" ></image>
+    <image class="wx-stat__ad" src="{{adxData.iurl}}" mode="widthFix" ></image>
   </navigator>
+  <view wx:if="{{adType === 'h5'}}" bindtap="gotoAdSite">
+    <image class="wx-stat__ad" src="{{adxData.iurl}}" mode="widthFix" ></image>
+  </view>
+  <web-view wx:if="{{showSite===true}}" src="{{adxData.clkurl302}}" />
 </view>
