@@ -15,6 +15,22 @@ Component({
     uid: {
       type: String,
       value: ''
+    },
+    aid: {
+      type: String,
+      default: ''
+    },
+    rid: {
+      type: String,
+      default: ''
+    },
+    imptrace: {
+      type: String,
+      default: ''
+    },
+    clktrace: {
+      type: String,
+      default: ''
     }
   },
   data: {

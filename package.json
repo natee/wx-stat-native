@@ -1,6 +1,6 @@
 {
   "name": "wx-stat-native",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "",
   "main": "miniprogram_dist/index.js",
   "scripts": {
