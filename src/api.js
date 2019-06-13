@@ -4,7 +4,7 @@ const request = promisify(wx.request)
 const baseURL = 'https://s.adx.newoer.com/'
 function getAdxInfo(params) {
   return request({
-    url: baseURL + 'xcx',
+    url: baseURL + `xcx?sid=${params.sid}`,
     method: 'POST',
     data: params
   })
