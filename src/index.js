@@ -76,7 +76,7 @@ Component({
 
       api.getAdxInfo(params).then(res => {
         const hasData = res.data.seatbid && res.data.seatbid.length > 0;
-        let bidInfo;
+        let bidInfo = {};
         if(hasData){
           bidInfo = res.data.seatbid[0].bid[0];
           this.setData({
@@ -99,7 +99,7 @@ Component({
           })
 
           // 展示时发送统计请求
-          this.data.adxData.imptrackers.forEach(url => {
+          bidInfo.imptrackers.forEach(url => {
             api.sendStatInfo(url)
           })
 
