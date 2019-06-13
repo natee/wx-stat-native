@@ -9,6 +9,9 @@ Component({
     name: {
       type: String
     },
+    sid: {
+      type: String
+    },
     tagId: {
       type: String
     },
@@ -63,6 +66,15 @@ Component({
         })
         return
       }
+      if (!data.sid) {
+        wx.showModal({
+          title: '提示',
+          content: 'wx-stat组件必填项sid未填写',
+          confirmText: '确定',
+          showCancel: false
+        })
+        return
+      }
 
       const params = {
         device: data.deviceInfo,
@@ -70,6 +82,7 @@ Component({
         user: data.user,
         imp: data.imp,
         ts: +new Date(),
+        sid: data.sid,
         aid: data.aid,
         rid: data.rid
       }

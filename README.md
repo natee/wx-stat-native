@@ -44,7 +44,8 @@ npm install wx-stat-native --save
 Page({
   data:{ // 组件需要的参数，不一定非得写这里，根据具体业务调整
     name: '你画我拆',
-    tagId: '300350'
+    tagId: '300350',
+    sid: '100000',
   }
 })
 ```
@@ -52,7 +53,7 @@ Page({
 打开pages/xxx/xxx.wxml
 
 ```html
-<wxstat type="{{type}}" name="{{name}}" tag-id="{{tagId}}" uid="{{uid}}" aid="{{aid}}" rid="{{rid}}" imptrace="{{imptrace}}" clktrace="{{clktrace}}"></wxstat>
+<wxstat type="{{type}}" name="{{name}}" sid="{{sid}}" tag-id="{{tagId}}" uid="{{uid}}" aid="{{aid}}" rid="{{rid}}" imptrace="{{imptrace}}" clktrace="{{clktrace}}"></wxstat>
 ```
 
 
@@ -70,6 +71,7 @@ Page({
 | ----- | ---- | ----- | ---- |
 | type | String | 广告主或小程序用户 | 可选，默认'user'，['adx','user'] |
 | tag-id | String | 广告主提供的tagid | 必填 |
+| sid | String | 媒体的账户id | 必填 |
 | name | String | 小程序名称 | 必填 |
 | uid | String | 用户微信id | 可选 |
 | aid | String | 预留参数aid | 可选 |
