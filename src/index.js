@@ -182,9 +182,21 @@ Component({
     },
 
     gotoAdSite() {
-      this.setData({
-        showSite: true
-      });
+      // this.setData({
+      //   showSite: true
+      // });
+      const url = this.data.adxData.clkurl302;
+      if (!url) {
+        wx.showModal({
+          title: '提示',
+          content: '该广告暂时无法访问',
+          confirmText: '确定',
+          showCancel: false
+        });
+        return;
+      }
+
+      this.triggerEvent('goto', { url: url});
     }
   }
 })

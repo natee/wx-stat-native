@@ -14,5 +14,5 @@
   <view wx:if="{{adType === 'h5'}}" bindtap="gotoAdSite">
     <image class="wx-stat__ad" src="{{adxData.iurl}}" mode="widthFix" ></image>
   </view>
-  <web-view wx:if="{{showSite===true}}" src="{{adxData.clkurl302}}" />
+  <!-- <web-view wx:if="{{showSite===true}}" src="{{adxData.clkurl302}}" /> -->
 </view>
